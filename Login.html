@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Form</title>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="Login.css">
+
+    <!-- Internal CSS -->
+    <style>
+        h2 {
+            text-align: center;
+            color: #444;
+            margin-bottom: 15px;
+        }
+
+        .note {
+            text-align: center;
+            font-size: 12px;
+            color: #888;
+            margin-top: 12px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Marquee tag -->
+    <marquee behavior="alternate" scrollamount="5" style="color:white; font-size:18px; margin-top:10px;">
+   Empliz Innovations private Limited
+    </marquee>
+
+    <div class="container">
+        <h2>Login</h2>
+
+        <form>
+            <!-- Inline CSS -->
+            <label style="font-weight:bold;">Username</label>
+            <input type="text" placeholder="Enter username">
+
+            <label style="font-weight:bold;">Password</label>
+            <input type="password" placeholder="Enter password">
+
+            <button id="loginBtn">Login</button>
+        </form>
+
+        <p class="note">* All fields are mandatory</p>
+    </div>
+
+</body>
+</html>
