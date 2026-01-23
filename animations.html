@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Animations</title>
+
+    <style>
+        /* ------------------------------
+           GLOBAL STYLES
+        ------------------------------ */
+        body {
+            font-family: Arial, sans-serif;
+            background: aquamarine;
+            padding: 20px;
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        section {
+            background: #e2dbdb;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        /* ------------------------------
+           1. TRANSITION EXAMPLE
+        ------------------------------ */
+        .btn {
+            padding: 12px 25px;
+            background: rgb(3, 3, 38);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.5s, transform 0.5s;
+        }
+        
+        .btn:hover {
+            background: green;
+            transform: scale(1.1);
+        }
+
+        /* ------------------------------
+           2. SIMPLE KEYFRAMES ANIMATION
+        ------------------------------ */
+        .box {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: red;
+            animation: moveBox 1s infinite alternate;
+        }
+
+       @keyframes moveBox {
+            from {
+                transform: translateX(0px);
+            }
+            to {
+                transform: translateX(100px);
+            }
+        }
+
+        /* ------------------------------
+           3. FADE IN ANIMATION
+        ------------------------------ */
+        .fade {
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0.2; }
+            to { opacity: 10; }
+        }
+
+        /* ------------------------------
+           4. BOUNCE ANIMATION
+        ------------------------------ */
+        .bounce {
+            width: 100px;
+            height: 100px;
+            background: orange;
+            border-radius: 50%;
+            font-size: 2em;
+            animation: bounce 1s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-80px);
+            }
+        }
+
+        /* ------------------------------
+           5. ROTATING LOADER
+        ------------------------------ */
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 6px solid #ccc;
+            border-top: 6px solid rgb(23, 44, 149);
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+        }
+
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* ------------------------------
+           6. SLIDE IN EFFECT
+        ------------------------------ */
+        .slide {
+            width: 200px;
+            padding: 15px;
+            background: purple;
+            color: white;
+            animation: slideIn 2.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-300px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* ------------------------------
+           7. ANIMATION DELAY & DIRECTION
+        ------------------------------ */
+        .delayed {
+           width: 100px;
+            height: 100px;
+            border: 2px solid #333;
+            animation: rotateBox 2s linear infinite reverse;
+            animation-delay: 5s;
+        }
+
+        @keyframes rotateBox {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+
+<body>
+    <h1 align="center"><font color="blue">emplize</font></h1>
+    <h1>🎬 CSS Animations – Complete Document</h1>
+
+    <section>
+        <h2 class="fade">1️⃣ CSS Transition (Hover Animation)</h2>
+        <button class="btn">touch me</button>
+    </section>
+
+    <section>
+        <h2>2️⃣ Keyframes Animation</h2>
+        <div class="box"></div>
+    </section>
+
+    <section>
+        <h2>3️⃣ Fade In Effect</h2>
+        <p class="fade">This text fades in smoothly.</p>
+    </section>
+
+    <section>
+        <h2>4️⃣ Bounce Animation</h2>
+        <div class="bounce">text</div>
+    </section>
+
+    <section>
+        <h2>5️⃣ Loader Animation</h2>
+        <div class="loader"></div>
+    </section>
+
+    <section>
+        <h2>6️⃣ Slide In Animation</h2>
+        <div class="slide">Sliding Content</div>
+    </section>
+
+    <section>
+        <h2>7️⃣ Delay & Direction</h2>
+        <div class="delayed"></div>
+    </section>
+
+</body>
+</html>
