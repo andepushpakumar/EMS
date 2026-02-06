@@ -65,15 +65,15 @@
 // }
 // console.log(cars.result());
 
-let employee=[
-    {id:1,name:"Kumar",age:23,position:"Associate Developer"},
-    {id:2,name:"Narasimha",age:25,position:"Senior Developer"},
-    {id:3,name:"Noor",age:24,position:"Project Manager"}    
-]
-for (let emp of employee){
-  "Id",emp.id
-  "Name",emp.name
-  "Age",emp.age
-  "Position",emp.position
-  console.log(`Id: ${emp.id}, Name: ${emp.name}, Age: ${emp.age}, Position: ${emp.position}`);
-}
+// let employee=[
+//     {id:1,name:"Kumar",age:23,position:"Associate Developer"},
+//     {id:2,name:"Narasimha",age:25,position:"Senior Developer"},
+//     {id:3,name:"Noor",age:24,position:"Project Manager"}    
+// ]
+// for (let emp of employee){
+//   "Id",emp.id
+//   "Name",emp.name
+//   "Age",emp.age
+//   "Position",emp.position
+//   console.log(`Id: ${emp.id}, Name: ${emp.name}, Age: ${emp.age}, Position: ${emp.position}`);
+// }
