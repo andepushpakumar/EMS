@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- This tells the browser what kind of document this is -->
+  <meta charset="UTF-8" />
+  <!-- This makes the page look good on mobile phones too -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- This is the title shown on the browser tab -->
+  <title>Silver & Soul - Jewellery Collection</title>
+
+  <!-- Google Fonts - we are importing 2 beautiful fonts from the internet -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- ==================== CSS STARTS HERE ==================== -->
+  <style>
+
+    /* --- GENERAL RESET --- */
+    /* Remove default spacing from all elements */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* --- COLOR VARIABLES --- */
+    /* We store our colors here so we can reuse them easily */
+    :root {
+      --silver: #C0C0C0;        /* classic silver color */
+      --dark: #1a1a2e;          /* dark navy background */
+      --darker: #0f0f1a;        /* even darker for contrast */
+      --gold-white: #f0e6d3;    /* warm white for text */
+      --light-silver: #e8e8e8;  /* light silver for small text */
+      --accent: #a8c5da;        /* soft blue accent */
+    }
+
+    /* --- BODY (the whole page) --- */
+    body {
+      font-family: 'Poppins', sans-serif; /* clean modern font */
+      background-color: var(--darker);    /* dark background */
+      color: var(--gold-white);           /* light text color */
+      line-height: 1.6;                   /* space between lines */
+    }
+
+    /* ============================================================
+       NAVIGATION BAR (top menu)
+    ============================================================ */
+    nav {
+      background-color: rgba(15, 15, 26, 0.95); /* almost black, slightly transparent */
+      padding: 18px 60px;
+      display: flex;                  /* place items in a row */
+      justify-content: space-between; /* logo on left, links on right */
+      align-items: center;            /* vertically center them */
+      position: sticky;               /* sticks to top when scrolling */
+      top: 0;
+      z-index: 100;                   /* stays above other elements */
+      border-bottom: 1px solid rgba(192, 192, 192, 0.2); /* thin silver line */
+    }
+
+    /* Logo text style */
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      color: var(--silver);
+      letter-spacing: 2px;
+    }
+
+    /* The ✦ symbol in logo */
+    .logo span {
+      color: var(--accent);
+    }
+
+    /* Navigation links container */
+    nav ul {
+      list-style: none; /* remove bullet points */
+      display: flex;
+      gap: 0px; /* space between links */
+    }
+
+    /* Each navigation link */
+    nav ul li a {
+      text-decoration: none;      /* remove underline */
+      color: var(--light-silver);
+      font-size: 0.85rem;
+      letter-spacing: 1.5px;
+      padding: 0px 20px;
+      text-transform: uppercase;  /* make text UPPERCASE */
+      transition: color 0.3s;     /* smooth color change on hover */
+    }
+
+    /* When you hover over a nav link */
+    nav ul li a:hover {
+      color: var(--silver);
+    }
+
+    /* ============================================================
+       HERO SECTION (the big banner at the top)
+    ============================================================ */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Hero background image */
+    .hero-bg-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      filter: brightness(0.32);
+      z-index: 0;
+    }
+
+    /* Dark gradient over the image for extra readability */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(15,15,26,0.65) 0%, rgba(13,27,42,0.45) 100%);
+      z-index: 1;
+    }
+
+    /* Hero text container */
+    .hero-content {
+      position: relative;
+      z-index: 2; /* appear above the background image */
+    }
+
+    /* Small tag above the main heading */
+    .hero-tag {
+      font-size: 0.75rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    /* Main big heading */
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 7vw, 5.5rem); /* responsive font size */
+      font-weight: 700;
+      color: var(--silver);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    /* Italic styled word in heading */
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold-white);
+    }
+
+    /* Description paragraph */
+    .hero p {
+      font-size: 1rem;
+      color: var(--light-silver);
+      max-width: 500px;
+      margin: 0 auto 40px;
+      font-weight: 300;
+    }
+
+    /* Hero button */
+    .btn {
+      display: inline-block;
+      padding: 14px 40px;
+      background: transparent;
+      border: 1px solid var(--silver);
+      color: var(--silver);
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: all 0.3s;       /* smooth animation for all properties */
+      cursor: pointer;
+    }
+
+    /* Button hover effect */
+    .btn:hover {
+      background: var(--silver);
+      color: var(--darker);
+    }
+
+    /* ============================================================
+       SECTION TITLE (used in multiple sections)
+    ============================================================ */
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    /* Small label above section title */
+    .section-title .label {
+      font-size: 0.7rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    /* Section main heading */
+    .section-title h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      color: var(--silver);
+      font-weight: 400;
+    }
+
+    /* Thin line below section title */
+    .section-title h2::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 1px;
+      background: var(--silver);
+      margin: 16px auto 0;
+      opacity: 0.4;
+    }
+
+    /* ============================================================
+       COLLECTIONS SECTION (the jewellery cards)
+    ============================================================ */
+    .collections {
+      padding: 100px 60px;
+      background-color: var(--dark);
+    }
+
+    /* Grid layout for the cards */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+      gap: 30px; /* space between cards */
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* Each jewellery card */
+    .card {
+      background: var(--darker);
+      border: 1px solid rgba(192,192,192,0.15); /* faint silver border */
+      padding: 0;
+      overflow: hidden;           /* hide anything outside the card */
+      transition: transform 0.3s, border-color 0.3s;
+      cursor: pointer;
+    }
+
+    /* Lift card up on hover */
+    .card:hover {
+      transform: translateY(-8px);              /* move card up */
+      border-color: rgba(192,192,192,0.5);      /* brighter border */
+    }
+
+    /* Image area inside card */
+    .card-image {
+      width: 100%;
+      height: 260px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* The actual image inside card */
+    .card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;           /* fill the box without distortion */
+      transition: transform 0.5s ease;
+    }
+
+    /* Zoom in image on hover */
+    .card:hover .card-image img {
+      transform: scale(1.08);
+    }
+
+    /* Shiny overlay on card image when hovered */
+    .card-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(15,15,26,0.6) 0%, transparent 60%);
+      transition: opacity 0.3s;
+    }
+
+    /* Text area inside card */
+    .card-body {
+      padding: 24px;
+    }
+
+    /* Category label on card */
+    .card-body .category {
+      font-size: 0.65rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    /* Jewellery name on card */
+    .card-body h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--silver);
+      margin-bottom: 8px;
+    }
+
+    /* Description on card */
+    .card-body p {
+      font-size: 0.82rem;
+      color: var(--light-silver);
+      font-weight: 300;
+      margin-bottom: 16px;
+      opacity: 0.7;
+    }
+
+    /* Price text */
+    .card-body .price {
+      font-size: 1rem;
+      color: var(--silver);
+      font-weight: 500;
+    }
+
+    /* ============================================================
+       FEATURES SECTION (why choose us)
+    ============================================================ */
+    .features {
+      padding: 100px 60px;
+      background: var(--darker);
+    }
+
+    /* Grid for feature boxes */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* Each feature box */
+    .feature-box {
+      text-align: center;
+      padding: 40px 20px;
+      border: 1px solid rgba(192,192,192,0.1);
+      transition: border-color 0.3s;
+    }
+
+    .feature-box:hover {
+      border-color: rgba(192,192,192,0.4);
+    }
+
+    /* Big icon in each feature box */
+    .feature-box .icon {
+      font-size: 2.2rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .feature-box h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--silver);
+      margin-bottom: 10px;
+    }
+
+    .feature-box p {
+      font-size: 0.78rem;
+      color: var(--light-silver);
+      font-weight: 300;
+      opacity: 0.7;
+      line-height: 1.7;
+    }
+
+    /* ============================================================
+       ABOUT IMAGE SECTION
+    ============================================================ */
+    .about-section {
+      padding: 100px 60px;
+      background: var(--darker);
+      display: flex;
+      align-items: center;
+      gap: 70px;
+    }
+
+    .about-images {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 220px 220px;
+      gap: 12px;
+    }
+
+    .about-images .img-tall { grid-row: span 2; }
+
+    .about-images img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .about-images div:hover img { transform: scale(1.05); }
+
+    .about-images div {
+      overflow: hidden;
+    }
+
+    .about-text { flex: 1; }
+
+    .about-text .label {
+      font-size: 0.7rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .about-text h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      color: var(--silver);
+      font-weight: 400;
+      line-height: 1.3;
+      margin-bottom: 20px;
+    }
+
+    .about-text h2 em { font-style: italic; color: var(--accent); }
+
+    .about-text p {
+      font-size: 0.88rem;
+      color: var(--light-silver);
+      font-weight: 300;
+      line-height: 1.9;
+      opacity: 0.75;
+      margin-bottom: 14px;
+    }
+
+    .about-stats {
+      display: flex;
+      gap: 40px;
+      margin-top: 36px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(192,192,192,0.15);
+    }
+
+    .stat-item .num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      color: var(--silver);
+      line-height: 1;
+    }
+
+    .stat-item .stat-label {
+      font-size: 0.68rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-top: 6px;
+    }
+
+    /* ============================================================
+       BANNER SECTION (quote in the middle)
+    ============================================================ */
+    .banner {
+      padding: 100px 60px;
+      text-align: center;
+      background: linear-gradient(135deg, #1a1a2e, #0d1b2a);
+      border-top: 1px solid rgba(192,192,192,0.1);
+      border-bottom: 1px solid rgba(192,192,192,0.1);
+    }
+
+    /* Big quote text */
+    .banner h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 3.2rem);
+      color: var(--silver);
+      font-weight: 400;
+      line-height: 1.4;
+      max-width: 750px;
+      margin: 0 auto 30px;
+    }
+
+    .banner h2 em {
+      color: var(--accent);
+      font-style: italic;
+    }
+
+    /* ============================================================
+       TESTIMONIALS (customer reviews)
+    ============================================================ */
+    .testimonials {
+      padding: 100px 60px;
+      background: var(--dark);
+    }
+
+    /* Grid for review boxes */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* Each review box */
+    .review-box {
+      padding: 36px;
+      border: 1px solid rgba(192,192,192,0.12);
+      background: var(--darker);
+    }
+
+    /* Star rating */
+    .stars {
+      color: var(--silver);
+      font-size: 0.9rem;
+      letter-spacing: 3px;
+      margin-bottom: 16px;
+    }
+
+    /* Review quote text */
+    .review-box p {
+      font-size: 0.88rem;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--light-silver);
+      line-height: 1.8;
+      margin-bottom: 20px;
+      opacity: 0.85;
+    }
+
+    /* Reviewer name */
+    .reviewer {
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    /* ============================================================
+       NEWSLETTER SECTION (email signup)
+    ============================================================ */
+    .newsletter {
+      padding: 100px 60px;
+      background: var(--darker);
+      text-align: center;
+    }
+
+    .newsletter h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      color: var(--silver);
+      margin-bottom: 12px;
+    }
+
+    .newsletter p {
+      color: var(--light-silver);
+      font-size: 0.88rem;
+      font-weight: 300;
+      margin-bottom: 36px;
+      opacity: 0.7;
+    }
+
+    /* Email input and button together */
+    .newsletter-form {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    /* Email text box */
+    .newsletter-form input {
+      flex: 1;
+      padding: 14px 20px;
+      background: transparent;
+      border: 1px solid rgba(192,192,192,0.3);
+      border-right: none;           /* remove right border (connects to button) */
+      color: var(--gold-white);
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.85rem;
+      outline: none;                /* remove default blue outline */
+    }
+
+    /* Placeholder text style inside input */
+    .newsletter-form input::placeholder {
+      color: rgba(192,192,192,0.4);
+    }
+
+    /* Subscribe button */
+    .newsletter-form button {
+      padding: 14px 28px;
+      background: var(--silver);
+      color: var(--darker);
+      border: none;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .newsletter-form button:hover {
+      background: var(--gold-white);
+    }
+
+    /* ============================================================
+       FOOTER (bottom of the page)
+    ============================================================ */
+    footer {
+      background: #080810;          /* very dark, almost black */
+      padding: 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;              /* wrap to next line on small screens */
+      gap: 40px;
+      border-top: 1px solid rgba(192,192,192,0.1);
+    }
+
+    footer .logo {
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+    }
+
+    footer p {
+      font-size: 0.78rem;
+      color: var(--light-silver);
+      opacity: 0.5;
+      max-width: 220px;
+      line-height: 1.8;
+    }
+
+    /* Footer column heading */
+    .footer-col h5 {
+      font-size: 0.7rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--silver);
+      margin-bottom: 16px;
+    }
+
+    /* Footer links */
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-col ul li a {
+      text-decoration: none;
+      font-size: 0.8rem;
+      color: var(--light-silver);
+      opacity: 0.5;
+      transition: opacity 0.3s;
+    }
+
+    .footer-col ul li a:hover {
+      opacity: 1;
+    }
+
+    /* Bottom copyright bar */
+    .footer-bottom {
+      background: #080810;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.72rem;
+      color: var(--light-silver);
+      opacity: 0.35;
+      border-top: 1px solid rgba(192,192,192,0.05);
+    }
+
+    /* ============================================================
+       SCROLL ANIMATIONS (elements fade in when you scroll)
+    ============================================================ */
+
+    /* Hidden state - before animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px); /* start 30px below */
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    /* Visible state - after animation */
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);    /* move back to normal position */
+    }
+
+    /* Delay class - makes animation start a bit later */
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+    .delay-4 { transition-delay: 0.4s; }
+
+    /* ============================================================
+       RESPONSIVE (for mobile screens)
+    ============================================================ */
+    @media (max-width: 768px) {
+      nav { padding: 16px 24px; }
+      nav ul { gap: 16px; }
+      .collections, .features, .banner, .testimonials, .newsletter, footer {
+        padding: 70px 24px;
+      }
+      .cards-grid { grid-template-columns: 1fr; }      /* 1 column on mobile */
+      .features-grid { grid-template-columns: 1fr 1fr; } /* 2 columns */
+      .reviews-grid { grid-template-columns: 1fr; }
+      footer { padding: 40px 24px; }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+       NAVIGATION BAR
+  ============================================================ -->
+  <nav>
+    <div class="logo">Silver <span>✦</span> Soul</div>
+    <ul>
+      <li><a href="#collections">Collections</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ============================================================
+       HERO SECTION
+  ============================================================ -->
+  <section class="hero">
+    <!-- Background image from Unsplash (free high quality photos) -->
+    <img class="hero-bg-img"
+      src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=1600&auto=format&fit=crop"
+      alt="Silver jewellery background" />
+    <div class="hero-content">
+      <p class="hero-tag">✦ Handcrafted Silver Jewellery ✦</p>
+      <h1>Wear the <em>Elegance</em><br/>of Pure Silver</h1>
+      <p>Each piece is crafted with love, tradition, and 925 sterling silver — made to shine for generations.</p>
+      <a href="#collections" class="btn">Explore Collection</a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       COLLECTIONS SECTION
+  ============================================================ -->
+  <section class="collections" id="collections">
+    <div class="section-title fade-in">
+      <span class="label">✦ Our Pieces ✦</span>
+      <h2>Silver Collections</h2>
+    </div>
+
+    <div class="cards-grid">
+
+      <!-- Card 1 -->
+      <div class="card fade-in delay-1">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&auto=format&fit=crop" alt="Moonbeam Pendant" />
+        </div>
+        <div class="card-body">
+          <p class="category">Necklaces</p>
+          <h3>Moonbeam Pendant</h3>
+          <p>Delicate 925 silver pendant with a crescent moon design, perfect for everyday wear.</p>
+          <span class="price">₹ 1,299</span>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card fade-in delay-2">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=600&auto=format&fit=crop" alt="Stardust Ring" />
+        </div>
+        <div class="card-body">
+          <p class="category">Rings</p>
+          <h3>Stardust Ring</h3>
+          <p>Adjustable open-band ring engraved with delicate star patterns in pure silver.</p>
+          <span class="price">₹ 899</span>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card fade-in delay-3">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1618403088890-3d9ff6f4c8b1?w=600" alt="Ocean Chain Bracelet" />
+        </div>
+        <div class="card-body">
+          <p class="category">Bracelets</p>
+          <h3>Ocean Chain</h3>
+          <p>Layered chain bracelet inspired by ocean waves, crafted in sterling silver.</p>
+          <span class="price">₹ 1,099</span>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="card fade-in delay-1">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&auto=format&fit=crop" alt="Luna Hoops Earrings" />
+        </div>
+        <div class="card-body">
+          <p class="category">Earrings</p>
+          <h3>Luna Hoops</h3>
+          <p>Minimal silver hoop earrings with a brushed matte finish, lightweight and elegant.</p>
+          <span class="price">₹ 749</span>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="card fade-in delay-2">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&auto=format&fit=crop" alt="Star Trail Anklet" />
+        </div>
+        <div class="card-body">
+          <p class="category">Anklets</p>
+          <h3>Star Trail Anklet</h3>
+          <p>Dainty silver anklet with tiny star charms — a boho favourite for all seasons.</p>
+          <span class="price">₹ 649</span>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="card fade-in delay-3">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&auto=format&fit=crop" alt="Botanical Jewellery Set" />
+        </div>
+        <div class="card-body">
+          <p class="category">Sets</p>
+          <h3>Botanical Set</h3>
+          <p>Matching leaf-shaped pendant, earrings, and ring set — nature inspired elegance.</p>
+          <span class="price">₹ 2,499</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FEATURES SECTION
+  ============================================================ -->
+  <section class="features" id="about">
+    <div class="section-title fade-in">
+      <span class="label">✦ Why Us ✦</span>
+      <h2>Why Silver & Soul</h2>
+    </div>
+
+    <div class="features-grid">
+
+      <div class="feature-box fade-in delay-1">
+        <span class="icon">🏅</span>
+        <h4>925 Sterling Silver</h4>
+        <p>Every piece is made from certified 925 sterling silver — pure, strong, and tarnish-resistant.</p>
+      </div>
+
+      <div class="feature-box fade-in delay-2">
+        <span class="icon">🤲</span>
+        <h4>Handcrafted</h4>
+        <p>Each jewellery is handmade by skilled artisans with decades of traditional silverwork experience.</p>
+      </div>
+
+      <div class="feature-box fade-in delay-3">
+        <span class="icon">📦</span>
+        <h4>Free Shipping</h4>
+        <p>All orders above ₹999 get free delivery across India. Packed in beautiful gift-ready boxes.</p>
+      </div>
+
+      <div class="feature-box fade-in delay-4">
+        <span class="icon">🔄</span>
+        <h4>Easy Returns</h4>
+        <p>Not happy? Return within 15 days — no questions asked. Your satisfaction matters most.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ABOUT / STORY SECTION (with images)
+  ============================================================ -->
+  <section class="about-section">
+
+    <!-- Left: 3 jewellery photos in a grid -->
+    <div class="about-images fade-in">
+      <div class="img-tall">
+        <img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?w=600&auto=format&fit=crop" alt="Silver jewellery crafting" />
+      </div>
+      <div>
+        <img src="https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?w=400&auto=format&fit=crop" alt="Silver ring close up" />
+      </div>
+      <div>
+        <img src="https://images.unsplash.com/photo-1630019852942-f89202989a59?w=600" alt="Silver earrings" />
+      </div>
+    </div>
+
+    <!-- Right: Story text -->
+    <div class="about-text fade-in delay-2">
+      <span class="label">✦ Our Story ✦</span>
+      <h2>Crafted with<br/><em>Passion</em> & Silver</h2>
+      <p>Silver & Soul was born from a deep love for traditional silversmithing. Every piece we create is handcrafted by skilled artisans who have been working with silver for generations.</p>
+      <p>We use only certified 925 sterling silver — the highest quality, hypoallergenic, and built to last a lifetime. From delicate pendants to bold statement rings, each design tells a story.</p>
+      <div class="about-stats">
+        <div class="stat-item">
+          <div class="num">7+</div>
+          <div class="stat-label">Years</div>
+        </div>
+        <div class="stat-item">
+          <div class="num">250+</div>
+          <div class="stat-label">Designs</div>
+        </div>
+        <div class="stat-item">
+          <div class="num">10k+</div>
+          <div class="stat-label">Happy Customers</div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ============================================================
+       BANNER / QUOTE SECTION
+  ============================================================ -->
+  <div class="banner" style="position:relative; overflow:hidden;">
+    <!-- Background image for the banner -->
+    <img src="https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?w=1600&auto=format&fit=crop"
+      alt="jewellery background"
+      style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(0.2);z-index:0;" />
+    <div style="position:relative;z-index:1;">
+      <h2 class="fade-in">
+        "Silver is not just a metal —<br/>it is a <em>story</em> you wear every day."
+      </h2>
+      <a href="#collections" class="btn fade-in">Shop Now</a>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       REVIEWS / TESTIMONIALS
+  ============================================================ -->
+  <section class="testimonials" id="reviews">
+    <div class="section-title fade-in">
+      <span class="label">✦ Customer Love ✦</span>
+      <h2>What They Say</h2>
+    </div>
+
+    <div class="reviews-grid">
+
+      <div class="review-box fade-in delay-1">
+        <div class="stars">★★★★★</div>
+        <p>"The Moonbeam pendant is absolutely stunning. I wear it every single day and get compliments non-stop. Totally worth it!"</p>
+        <span class="reviewer">— Priya S., Hyderabad</span>
+      </div>
+
+      <div class="review-box fade-in delay-2">
+        <div class="stars">★★★★★</div>
+        <p>"Ordered the Botanical Set as a gift for my sister. She was speechless! Beautiful packaging and gorgeous jewellery."</p>
+        <span class="reviewer">— Rahul M., Bengaluru</span>
+      </div>
+
+      <div class="review-box fade-in delay-3">
+        <div class="stars">★★★★★</div>
+        <p>"Pure quality silver, exactly as described. The Luna Hoops are so lightweight, I forget I'm wearing them. Love this brand!"</p>
+        <span class="reviewer">— Ananya K., Mumbai</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       NEWSLETTER SECTION
+  ============================================================ -->
+  <section class="newsletter" id="contact">
+    <h2 class="fade-in">Stay in the Loop</h2>
+    <p class="fade-in">Subscribe for new arrivals, exclusive offers, and silver care tips.</p>
+    <div class="newsletter-form fade-in">
+      <input type="email" placeholder="Enter your email address..." id="emailInput" />
+      <button onclick="subscribe()">Subscribe</button>
+    </div>
+    <!-- Message shown after subscribing -->
+    <p id="successMsg" style="display:none; margin-top:20px; color:#a8c5da; font-size:0.85rem;">
+      ✦ Thank you! You're now part of Silver & Soul. ✦
+    </p>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer>
+
+    <!-- Brand info -->
+    <div>
+      <div class="logo">Silver <span>✦</span> Soul</div>
+      <p>Handcrafted silver jewellery made with love and tradition since 2018.</p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-col">
+      <h5>Quick Links</h5>
+      <ul>
+        <li><a href="#collections">Collections</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Categories -->
+    <div class="footer-col">
+      <h5>Categories</h5>
+      <ul>
+        <li><a href="#">Necklaces</a></li>
+        <li><a href="#">Rings</a></li>
+        <li><a href="#">Bracelets</a></li>
+        <li><a href="#">Earrings</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact info -->
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="#">hello@silversoul.in</a></li>
+        <li><a href="#">+91 98765 43210</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">WhatsApp</a></li>
+      </ul>
+    </div>
+
+  </footer>
+
+  <!-- Copyright bar -->
+  <div class="footer-bottom">
+    © 2025 Silver & Soul. All rights reserved. Made with ♥
+  </div>
+
+
+  <!-- ============================================================
+       JAVASCRIPT SECTION
+  ============================================================ -->
+  <script>
+
+    // -------------------------------------------------------
+    // SCROLL ANIMATION
+    // This makes elements fade in when you scroll down to them
+    // -------------------------------------------------------
+
+    // Select ALL elements that have the class "fade-in"
+    const fadeElements = document.querySelectorAll('.fade-in');
+
+    // IntersectionObserver watches when elements appear on screen
+    const observer = new IntersectionObserver(function(entries) {
+
+      // Loop through each element being watched
+      entries.forEach(function(entry) {
+
+        // If the element is now visible on screen...
+        if (entry.isIntersecting) {
+          // ...add the "visible" class which triggers the CSS animation
+          entry.target.classList.add('visible');
+        }
+      });
+
+    }, { threshold: 0.15 }); // trigger when 15% of the element is visible
+
+    // Tell the observer to watch each fade-in element
+    fadeElements.forEach(function(el) {
+      observer.observe(el);
+    });
+
+    // -------------------------------------------------------
+    // SMOOTH SCROLL (for navigation links)
+    // When you click a nav link, page scrolls smoothly to that section
+    // -------------------------------------------------------
+    document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+
+      link.addEventListener('click', function(e) {
+        e.preventDefault(); // stop the default jump behaviour
+
+        // Find the section this link points to
+        const target = document.querySelector(this.getAttribute('href'));
+
+        if (target) {
+          // Smoothly scroll to that section
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // -------------------------------------------------------
+    // SUBSCRIBE FUNCTION
+    // Called when the user clicks the Subscribe button
+    // -------------------------------------------------------
+    function subscribe() {
+      const input = document.getElementById('emailInput');
+      const msg = document.getElementById('successMsg');
+
+      // Check if email box is not empty
+      if (input.value.trim() !== '') {
+        msg.style.display = 'block';  // show the success message
+        input.value = '';             // clear the input box
+      } else {
+        // If empty, shake the input to alert the user
+        input.style.border = '1px solid #a8c5da';
+        setTimeout(function() {
+          input.style.border = '1px solid rgba(192,192,192,0.3)';
+        }, 1500);
+      }
+    }
+
+    // -------------------------------------------------------
+    // NAV HIGHLIGHT on scroll
+    // Makes the nav link bold when you're in that section
+    // -------------------------------------------------------
+    window.addEventListener('scroll', function() {
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('nav ul li a');
+
+      sections.forEach(function(section) {
+        const top = section.offsetTop - 100;
+        const bottom = top + section.offsetHeight;
+
+        if (window.scrollY >= top && window.scrollY < bottom) {
+          navLinks.forEach(function(link) {
+            link.style.color = '';                     // reset all
+            if (link.getAttribute('href') === '#' + section.id) {
+              link.style.color = '#C0C0C0';            // highlight current
+            }
+          });
+        }
+      });
+    });
+
+  </script>
+
+</body>
+</html>
