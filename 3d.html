@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>3D Flip Card</title>
+
+<style>
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #0f172a;
+}
+
+
+.card {
+    width: 200px;
+    height: 200px;
+ 
+    perspective: 800px;
+    
+}
+
+
+.inner {
+    width: 100%;
+    height: 100%;
+    border: 2px solid #ffffff33;
+    border-radius: 50%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s;
+
+}
+
+.card:hover .inner {
+    transform: rotateY(180deg);
+}
+
+.front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    backface-visibility: hidden;
+}
+
+.front {
+    background: #22c55e;
+}
+
+.back {
+    background: #3b82f6;
+    transform: rotateY(180deg);
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <div class="inner">
+        <div class="front">Heads</div>
+        <div class="back">Tails</div>
+    </div>
+</div>
+
+</body>
+</html>

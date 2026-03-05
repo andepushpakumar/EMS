@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>RegEx Validation</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+form {
+    background: white;
+    padding: 25px;
+    width: 300px;
+    border-radius: 8px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<form onsubmit="return validate()">
+    <h2>Form Validation</h2>
+
+    Name
+    <input type="text" id="name">
+    <span class="error" id="nameError"></span>
+
+    Phone
+    <input type="text" id="phone">
+    <span class="error" id="phoneError"></span>
+
+    Email
+    <input type="text" id="email">
+    <span class="error" id="emailError"></span>
+
+    Password
+    <input type="password" id="password">
+    <span class="error" id="passwordError"></span>
+
+    Date (DD-MM-YYYY)
+    <input type="text" id="date">
+    <span class="error" id="dateError"></span>
+
+    <button type="submit">Submit</button>
+    <p id="success" style="color:green; text-align:center;"></p>
+
+</form>
+
+<script>
+function validate() {
+
+    // clear old errors
+    document.querySelectorAll(".error").forEach(e => e.innerHTML = "");
+    document.getElementById("success").innerHTML = "";
+
+    let name = document.getElementById("name").value;
+    let phone = document.getElementById("phone").value;
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+    let date = document.getElementById("date").value;
+
+    let valid = true;
+
+    if (!/^[A-Za-z ]{3,}$/.test(name)) {
+        document.getElementById("nameError").innerHTML =
+            "Name must have at least 3 characters";
+        valid = false;
+    }
+
+    if (!/^[0-9]{10}$/.test(phone)) {
+        document.getElementById("phoneError").innerHTML =
+            "Phone number must be exactly 10 digits";
+        valid = false;
+    }
+
+    if (!/^[a-z0-9]+@[a-z]+\.[a-z]{2,}$/.test(email)) {
+        document.getElementById("emailError").innerHTML =
+            "Enter valid email";
+        valid = false;
+    }
+
+    if (!/^[A-Za-z0-9@#]{6,}$/.test(password)) {
+        document.getElementById("passwordError").innerHTML =
+            "Minimum 6 characters";
+        valid = false;
+    }
+
+    if (!/^\d{2}-\d{2}-\d{4}$/.test(date)) {
+        document.getElementById("dateError").innerHTML =
+            "Use DD-MM-YYYY";
+        valid = false;
+    }
+
+    // SUCCESS
+    if (valid) {
+        document.getElementById("success").innerHTML =
+            "Submitted successfully ✅";
+
+        // clear form
+        document.querySelector("form").reset();
+
+        // hide success message after 3 seconds
+        setTimeout(() => {
+            document.getElementById("success").innerHTML = "";
+        }, 3000);
+    }
+
+    return false; // prevent page reload
+}
+</script>
+
+
+</body>
+</html>

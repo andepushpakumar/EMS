@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body{
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        div{
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            grid-template-rows: 70px 1fr 60px;
+            grid-template-areas:
+            "header header"
+            "sidebar main"
+            "footer footer";
+            height: 60vh;
+            gap: 10px;
+            padding: 10px;
+        }
+        header{
+            grid-area: header;
+            background-color: #000000;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 1.5em;
+        }
+        aside{
+            grid-area: sidebar;
+            background-color: #d4d4d4;
+            padding: 20px;
+        }
+        aside ul{
+            list-style-type: none;
+        }
+        aside ul li{
+            padding: 12px;
+            border-bottom: 1px solid #ccc;
+            cursor: pointer;
+        }
+        aside ul li:hover{
+            background-color: #6e41c7;
+        }
+        main{
+            grid-area: main;
+            background-color: white;
+            padding: 20px;
+        }
+        .cards{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+           
+            
+        }
+        .card{
+            background-color: #08031eae;
+            height: 200px;
+            color: white;
+             text-align: center;
+            margin: 10px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        footer{
+            grid-area: footer;
+            background-color: #03060f;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div>
+        <header>🚘Kumar's Car Collection🚔</header>
+        <aside>
+            <nav>
+                <ul>
+                 <li><a href="">Services</a></li>
+                 <li><a href="">Accesssories</a></li>
+                 <li><a href="">Drive</a></li>
+                 <li><a href="">Tests</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main>
+            <h1>Welcome to the car World</h1>
+            <p>Get the best toy cars for kids and toy vehicles at up to 45% off at Snooplay.
+                 Explore a fun and exciting collection perfect for little racers.</p>
+                 <div class="cards">
+                    <div class="card">card</div>
+                    <div class="card">card</div>
+                    <div class="card">card</div>
+                    <div class="card">card</div>
+                    <div class="card">card</div>
+                   
+                 </div>
+        </main>
+        <footer> &copy; 2026 Kumar Car World. All rights reserved.</footer>
+    </div>
+</body>
+</html>

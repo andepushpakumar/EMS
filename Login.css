@@ -1,0 +1,51 @@
+/* Element selector */
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #0a26a4, #060309);
+    height: 100vh;
+    margin: 0;
+}
+
+/* Class selector */
+.container {
+    width: 320px;
+    background-color: #ffffff;
+    padding: 25px;
+    margin: 80px auto;
+    border-radius: 12px;
+}
+
+/* Element selector */
+label {
+    display: block;
+    margin-top: 10px;
+    color: #333;
+}
+
+/* Group selector */
+input, button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+/* Element selector */
+input {
+    border: 1px solid #ccc;
+}
+
+/* ID selector */
+#loginBtn {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+/* Hover effect */
+#loginBtn:hover {
+    opacity: 0.9;
+}
